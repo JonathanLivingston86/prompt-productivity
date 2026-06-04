@@ -496,15 +496,13 @@ Segui questi passi per installare l'agente nel tuo ambiente Antigravity:
 
 ---
 
-## 3. Invio Email: Due Modalità (Semplice vs Avanzata)
+## 3. Invio Email: Integrazione Nativa con MCP Gmail
 
-Per fare in modo che Antigravity invii il report dei bandi direttamente alla tua casella email, puoi scegliere tra due modalità:
+Per consentire ad Antigravity di inviare il report dei bandi direttamente al tuo indirizzo email in totale sicurezza, colleghiamo il server MCP di Gmail:
 
-### Opzione A (Consigliata per Antigravity): Integrazione Nativa con MCP Gmail
-Se usi l'ecosistema MCP (Model Context Protocol), puoi consentire ad Antigravity di accedere in modo sicuro alla tua casella email senza inserire password nel codice.
 1. Apri il file delle impostazioni globali di Antigravity:
    * **Windows**: `C:\Users\&lt;TuoNomeUtente&gt;\.gemini\settings.json`
-2. Aggiungi il server MCP ufficiale di Gmail all'interno dell'oggetto `"mcpServers"`:
+2. Aggiungi il server MCP di Gmail all'interno dell'oggetto `"mcpServers"`:
    ```json
    "mcpServers": {
      "gmail": {
@@ -516,14 +514,8 @@ Se usi l'ecosistema MCP (Model Context Protocol), puoi consentire ad Antigravity
      }
    }
    ```
-3. All'avvio, Antigravity ti guiderà ad autorizzare l'accesso (tramite Google OAuth sul browser).
-4. Da quel momento, l'agente userà direttamente i comandi nativi come `gmail.send_message` o `gmail.create_draft` per inviarti il report quotidiano.
-
-### Opzione B (Tradizionale): Script Python + SMTP
-Se preferisci non usare MCP, puoi usare lo script di supporto `send_email_smtp.py` presente nel workspace:
-1. Esegui lo script dal terminale: `python send_email_smtp.py`.
-2. Inserisci il destinatario, il mittente e la tua password SMTP (es. una *App Password* generata da Google Account se usi Gmail).
-3. Lo script invierà l'email formattata in HTML tramite i server email standard.
+3. Al primo invio, Antigravity ti guiderà ad autorizzare l'accesso in sicurezza (tramite Google OAuth sul browser).
+4. L'agente utilizzerà lo strumento nativo `gmail.send_message` per inviarti il report quotidiano in formato HTML.
 
 ---
 
