@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Productivity — AI Literacy per Architetti</title>
+    <meta name="description" content="Visualizza e copia al volo con un click i prompt per automatizzare la gestione di immagini, documenti e per configurare il tuo Secondo Cervello AI." />
+    <meta name="author" content="Andrea Lucarelli" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jonathanlivingston86.github.io/prompt-productivity/" />
+    <meta property="og:title" content="Prompt Productivity — AI Literacy per Architetti" />
+    <meta property="og:description" content="Visualizza e copia al volo i prompt del workshop 'Productivity' per automatizzare il lavoro del tuo studio d'architettura." />
+    <meta property="og:image" content="https://ai.andrealucarelli.com/lovable-uploads/783185af-9202-47a1-9b35-7dc576429e0e.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="logo-al.svg" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background blur decorations -->
+    <div class="glow-bg glow-1"></div>
+    <div class="glow-bg glow-2"></div>
+
+    <header class="site-header">
+      <div class="header-container">
+        <a href="https://ai.andrealucarelli.com" class="brand-link" target="_blank" rel="noopener noreferrer">
+          <img src="logo-al.svg" alt="AL Logo" class="brand-logo" width="32" height="32" />
+          <span class="brand-name">Andrea Lucarelli</span>
+        </a>
+        <div class="header-badge">Workshop: 02 Productivity</div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero-section">
+        <h1 class="text-gradient">Prompt Productivity</h1>
+        <p class="hero-subtitle">
+          Ottimizza e automatizza il flusso di lavoro del tuo studio di architettura. Clicca sui prompt qui sotto per copiarli e incollarli nelle tue chat AI.
+        </p>
+      </section>
+
+      <section class="controls-section">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="search-input" placeholder="Cerca tra i prompt (es. Secondo Cervello, Immagini...)" aria-label="Cerca prompt" />
+        </div>
+      </section>
+
+      <section class="prompts-grid" id="prompts-grid">
+        <!-- Card 1: Riordino Immagini -->
+        <article class="prompt-card" data-keywords="riordino immagini archiviazione architettura rinomina foto contesti">
+          <div class="card-header">
+            <div class="card-meta">
+              <span class="tag tag-blue">Automazione</span>
+              <span class="prompt-id">Prompt #1</span>
+            </div>
+            <h2 class="card-title">Organizzazione & Riordino Immagini</h2>
+          </div>
+          <div class="card-body">
+            <p class="card-description">
+              Comportandosi come un assistente di architettura e design, questo prompt permette ad un'AI agentica di rinominare e smistare le immagini di un progetto per soggetto principale, contesto spaziale e colore.
+            </p>
+            <div class="code-container">
+              <div class="code-header">
+                <span>Prompt di Sistema</span>
+                <button class="btn-copy" data-target="prompt-1" aria-label="Copia prompt">
+                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span class="btn-text">Copia</span>
+                </button>
+              </div>
+              <pre><code id="prompt-1">Usa i tuoi sub-agents per analizzare e organizzare le immagini dentro la cartella "Immagini disordinate", comportandoti come un assistente di architettura e design.
+
+**Fase 1: Rinomina**
+Analizza ogni immagine e rinominala seguendo esattamente questo formato:
+`SoggettoPrincipale_Contesto_ColoreDelSoggetto`
+(Esempio: `Poltrona_Soggiorno_Marrone.jpg` oppure `Facciata_Esterno_Bianco.jpg`).
+Nota bene: devi identificare il colore predominante SOLO del soggetto principale, ignorando lo sfondo.
+
+**Fase 2: Crea le cartelle**
+Crea esattamente 5 sottocartelle:
+
+* 4 cartelle nominate in base ai contesti architettonici più frequenti che trovi nelle foto (es. Interni, Esterni, Materiali, Arredi).
+* 1 cartella chiamata "Altro".
+
+**Fase 3: Archiviazione**
+Sposta ogni immagine rinominata nella cartella corretta. Inserisci nella cartella "Altro" tutte le immagini che non rientrano nelle tue 4 categorie principali o che non c'entrano nulla con l'architettura (come automobili, cibo o paesaggi senza edifici).</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Ridenominazione Documenti -->
+        <article class="prompt-card" data-keywords="documenti rinomina file faldoni pdf archivio cartelle">
+          <div class="card-header">
+            <div class="card-meta">
+              <span class="tag tag-purple">Gestione Studio</span>
+              <span class="prompt-id">Prompt #2</span>
+            </div>
+            <h2 class="card-title">Ridenominazione Coerente Documenti</h2>
+          </div>
+          <div class="card-body">
+            <p class="card-description">
+              Ottimizza e standardizza l'archiviazione di file, fatture, relazioni e schede tecniche analizzandone il contenuto e strutturando il nome file secondo uno schema temporale, tipologico e di soggetto.
+            </p>
+            <div class="code-container">
+              <div class="code-header">
+                <span>Prompt di Sistema</span>
+                <button class="btn-copy" data-target="prompt-2" aria-label="Copia prompt">
+                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span class="btn-text">Copia</span>
+                </button>
+              </div>
+              <pre><code id="prompt-2">Analizza la documentazione in questa cartella, comprendi a fondo il contenuto di ogni file. poi rinomina coerentemente ogni file in base al contenuto con la seguente formattazione [Data] - [Tipo Documento] - [Soggetto] [Dettagli]</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Secondo Cervello -->
+        <article class="prompt-card" data-keywords="secondo cervello identikit intervista obsidian drive organizzazione">
+          <div class="card-header">
+            <div class="card-meta">
+              <span class="tag tag-green">Strategia & AI</span>
+              <span class="prompt-id">Prompt #3</span>
+            </div>
+            <h2 class="card-title">Configurazione Secondo Cervello AI</h2>
+          </div>
+          <div class="card-body">
+            <p class="card-description">
+              Un prompt avanzato per trasformare l'AI in un intervistatore professionista. Consente di definire il proprio profilo lavorativo, individuare le lacune organizzative e impostare un archivio strutturato per Obsidian o Drive.
+            </p>
+            <div class="code-container">
+              <div class="code-header">
+                <span>Prompt per Chatbot (ChatGPT / Claude)</span>
+                <button class="btn-copy" data-target="prompt-3" aria-label="Copia prompt">
+                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span class="btn-text">Copia</span>
+                </button>
+              </div>
+              <pre><code id="prompt-3">Sei un giornalista esperto in identità organizzativa. Mi aiuti a costruire il documento fondante del mio “secondo cervello” per l’intelligenza artificiale: un identikit che mi rappresenti così bene che, dato a qualsiasi AI, riceva risposte come se mi conoscesse da anni.
+
+Il tuo lavoro è in tre fasi.
+
+Fase 1 — Intervista guidata. Fammi domande mirate per ricostruire chi sono e cosa faccio (organizzazione o singolo professionista), cosa offro al mercato e a chi, i miei obiettivi a 12 mesi, come penso che l’intelligenza artificiale possa aiutarmi concretamente nel mio lavoro. Una domanda alla volta, aspetta la mia risposta, poi vai alla domanda dopo. Se rispondo superficialmente, chiedi un esempio concreto prima di passare avanti. Se hai bisogno di altre domande per chiarire i punti ciechi, falle.
+
+Fase 2 — Mappa delle informazioni mancanti. Quando l’intervista è finita, restituiscimi un elenco delle informazioni che servono per costruire un secondo cervello completo ma che non abbiamo ancora toccato. Solo quelle mancanti, non quelle già coperte. Esempi possibili: politiche commerciali, processo di vendita, valori del brand, lista clienti chiave, strumenti quotidiani, fornitori, persone di team. Se abbiamo parlato di progetti personali e non lavorativi, fai lo stesso.
+
+Fase 3 — Struttura cartelle proposta. Alla fine, proponi una struttura di cartelle e file (in formato albero) in cui organizzare tutto. Pensa che dovrà essere gestita con strumenti come Obsidian o Drive. Esempio: cartella cervello/ con dentro 00-identita/ (chi-siamo, obiettivi-2026, tono-di-voce), 01-mercato/ (profili-cliente, casi-tipo), 02-operativo/ (strumenti-quotidiani, workflow-standard).
+
+Il documento della fase 1 deve essere fornito in formato markdown.</code></pre>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        <p>Nessun prompt trovato che corrisponde alla tua ricerca.</p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p>© 2026 Andrea Lucarelli — AI Literacy per architetti e designer.</p>
+        <div class="footer-links">
+          <a href="https://ai.andrealucarelli.com" target="_blank" rel="noopener noreferrer">Sito Web</a>
+          <a href="https://www.linkedin.com/in/andrealucarelli/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Notification container -->
+    <div id="toast" class="toast" role="alert" aria-live="polite">
+      <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span class="toast-message">Prompt copiato negli appunti!</span>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
