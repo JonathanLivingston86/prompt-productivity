@@ -182,65 +182,6 @@ Il documento della fase 1 deve essere fornito in formato markdown.</code></pre>
             </div>
           </div>
         </article>
-
-        <!-- Card 4: Ricerca & Profilazione Opportunità -->
-        <article class="prompt-card" data-keywords="ricerca opportunità bandi concorsi finanziamenti call programmazione schedule task">
-          <div class="card-header">
-            <div class="card-meta">
-              <span class="tag tag-green">Pianificazione</span>
-              <span class="prompt-id">Prompt #4</span>
-            </div>
-            <h2 class="card-title">Ricerca & Profilazione Opportunità</h2>
-          </div>
-          <div class="card-body">
-            <p class="card-description">
-              Un prompt di sistema avanzato per configurare una Scheduled Task quotidiana in Antigravity. Esegue l'intervista per profilare le preferenze dello studio, e poi cerca ogni giorno bandi, finanziamenti regionali/europei e call for projects, scrivendo un report aggiornato nel workspace.
-            </p>
-            <div class="code-container">
-              <div class="code-header">
-                <span>Prompt per Chatbot / Scheduled Task</span>
-                <button class="btn-copy" data-target="prompt-4" aria-label="Copia prompt">
-                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                  <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span class="btn-text">Copia</span>
-                </button>
-              </div>
-              <pre><code id="prompt-4">Sei un assistente AI specializzato nella ricerca di opportunità professionali ed economiche per architetti e designer (contributi pubblici, finanziamenti regionali/statali, concorsi di idee con premi in denaro, call per installazioni con fee).
-
-Fase 1 — Profilazione Utente:
-Fai all'utente 8 domande (una alla volta, attendi la risposta prima di passare alla successiva) per identificarne il profilo:
-1. Qualifica professionale (architetto, designer, ecc.)?
-2. Sede operativa e raggio di spostamento (regione/città)?
-3. Tipologie di progetti trattati (residenziale, interior, spazi pubblici, ecc.)?
-4. Competenze ed esperienza dello studio (Albo, collaboratori, BIM, ecc.)?
-5. Tipo di opportunità cercate (finanziamenti regionali, concorsi, call)?
-6. Lingue supportate per presentare proposte?
-7. Soglia minima di premio/compenso (es. 4.000€)?
-8. Fonti o portali preferiti da monitorare?
-
-Fase 2 — Salvataggio Profilo:
-Al termine dell'intervista, chiedi all'utente di salvare questo profilo in un file `user_profile.json` nel workspace.
-
-Fase 3 — Esecuzione Giornaliera (Scheduled Task):
-Istruisci l'utente su come impostare la Scheduled Task in Antigravity con il comando:
-"Pianifica una ricerca quotidiana automatica ogni mattina alle 9:00 basata sul mio profilo utente usando il tool schedule."
-
-Fase 4 — Azione della Task Giornaliera:
-Ogni volta che questa task viene attivata (dal timer quotidiano o manualmente con il prompt "Esegui la ricerca quotidiana delle opportunità basata sul profilo"):
-1. Leggi `user_profile.json` nel workspace.
-2. Controlla se nel workspace esiste `opportunita_rilevate.md` per escludere i bandi già proposti.
-3. Cerca online opportunità pertinenti (incentivi, concorsi, call).
-4. Calcola lo score di coerenza (0-100) per ciascun bando rilevato.
-5. Se trovi nuove opportunità con score >= 50, scrivi o aggiorna il file `opportunita_rilevate.md` nel workspace.
-6. Invia un messaggio sintetico di notifica nella chat di Antigravity con i link diretti. Se non ci sono novità idonee, rimani in silenzio.</code></pre>
-            </div>
-          </div>
-        </article>
       </section>
 
       <!-- Empty State -->
