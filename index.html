@@ -492,27 +492,52 @@ Segui questi passi per installare l'agente nel tuo ambiente Antigravity:
 4. Copia e incolla all'interno di `SKILL.md` le istruzioni della skill (puoi trovarle nel file `SKILL.md` fornito nel materiale del workshop).
 
 ### Passo 2: Posizionare lo Scraper nel Workspace
-1. Copia il file seeker_scraper.py all'interno della cartella del tuo progetto o workspace di lavoro corrente (la cartella in cui di lavoro di solito organizzi i documenti).
+1. Copia il file seeker_scraper.py all'interno della cartella del tuo progetto o workspace di lavoro corrente.
 
 ---
 
-## 3. Come Avviare l'Agente e Profilarsi
+## 3. Invio Email: Due Modalità (Semplice vs Avanzata)
+
+Per fare in modo che Antigravity invii il report dei bandi direttamente alla tua casella email, puoi scegliere tra due modalità:
+
+### Opzione A (Consigliata per Antigravity): Integrazione Nativa con MCP Gmail
+Se usi l'ecosistema MCP (Model Context Protocol), puoi consentire ad Antigravity di accedere in modo sicuro alla tua casella email senza inserire password nel codice.
+1. Apri il file delle impostazioni globali di Antigravity:
+   * **Windows**: `C:\Users\&lt;TuoNomeUtente&gt;\.gemini\settings.json`
+2. Aggiungi il server MCP ufficiale di Gmail all'interno dell'oggetto `"mcpServers"`:
+   ```json
+   "mcpServers": {
+     "gmail": {
+       "command": "npx",
+       "args": [
+         "-y",
+         "@modelcontextprotocol/server-gmail"
+       ]
+     }
+   }
+   ```
+3. All'avvio, Antigravity ti guiderà ad autorizzare l'accesso (tramite Google OAuth sul browser).
+4. Da quel momento, l'agente userà direttamente i comandi nativi come `gmail.send_message` o `gmail.create_draft` per inviarti il report quotidiano.
+
+### Opzione B (Tradizionale): Script Python + SMTP
+Se preferisci non usare MCP, puoi usare lo script di supporto `send_email_smtp.py` presente nel workspace:
+1. Esegui lo script dal terminale: `python send_email_smtp.py`.
+2. Inserisci il destinatario, il mittente e la tua password SMTP (es. una *App Password* generata da Google Account se usi Gmail).
+3. Lo script invierà l'email formattata in HTML tramite i server email standard.
+
+---
+
+## 4. Come Avviare l'Agente e Profilarsi
 
 Una volta posizionati i file, apri la chat di Antigravity nel tuo workspace e digita:
 
 > *"Attiva l'agente BandoSeeker e avvia l'intervista per creare il mio profilo di ricerca."*
 
-L'agente riconoscerà la skill e ti farà una serie di domande (una alla volta) per capire:
-* Se sei freelance, studio associato, azienda, ecc.
-* Quali tipologie di progetti realizzi ed il tuo stile.
-* In quali paesi o regioni operi.
-* Quali budget minimi e scadenze minime vuoi impostare per filtrare i bandi.
-
-Al termine delle domande, l'agente salverà automaticamente nel tuo workspace il file `user_profile.json`. Puoi modificare questo file a mano in qualsiasi momento per aggiornare i tuoi parametri di ricerca!
+L'agente riconoscerà la skill e ti farà una serie di domande per definire i parametri del tuo studio. Al termine, salverà nel tuo workspace il file `user_profile.json`.
 
 ---
 
-## 4. Come Attivare la Ricerca Automatica Quotidiana (Scheduling)
+## 5. Come Attivare la Ricerca Automatica Quotidiana (Scheduling)
 
 Per fare in modo che l'agente cerchi bandi per te ogni giorno in background e ti invii una notifica solo se trova qualcosa di rilevante, scrivi in chat:
 
@@ -524,12 +549,12 @@ Per fare in modo che l'agente cerchi bandi per te ogni giorno in background e ti
 3. Eseguirà lo script `seeker_scraper.py` e farà ricerche web (`search_web`) per trovare nuove opportunità.
 4. Confronterà i risultati con i report dei giorni precedenti per evitare duplicati.
 5. Calcolerà il punteggio di coerenza per ogni bando.
-6. **Se trova nuove opportunità valide (punteggio &gt;= 50)**: creerà un file di riepilogo `report_AAAA-MM-DD.md` nel tuo workspace e ti invierà una notifica in chat.
+6. **Se trova nuove opportunità valide (punteggio &gt;= 50)**: creerà un file di riepilogo `report_AAAA-MM-DD.md` nel tuo workspace e ti invierà la notifica via email (usando il server MCP Gmail o lo script SMTP) e in chat.
 7. **Se non trova nulla di nuovo**: rimarrà in silenzio senza disturbarti.
 
 ---
 
-## 5. Spiegazione dello Scoring (Come l'agente valuta i bandi)
+## 6. Spiegazione dello Scoring (Come l'agente valuta i bandi)
 
 L'agente assegna un punteggio da 0 a 100 a ogni bando per determinarne l'interesse:
 * **Coerenza Profilo (Fino a 40 punti)**: Valuta se l'oggetto del bando corrisponde alle categorie indicate nel tuo profilo (residenziale, retail, spazi pubblici, ecc.).
@@ -540,7 +565,7 @@ L'agente assegna un punteggio da 0 a 100 a ogni bando per determinarne l'interes
 
 ---
 
-## 6. Personalizzazione Didattica (Esercizi per gli studenti)
+## 7. Personalizzazione Didattica (Esercizi per gli studenti)
 
 Puoi sperimentare e migliorare l'agente modificando i file sorgente:
 1. **Aggiungere Nuovi Portali**: Modifica il dizionario `RSS_FEEDS` nel file `seeker_scraper.py` per includere altri feed RSS regionali o internazionali.
