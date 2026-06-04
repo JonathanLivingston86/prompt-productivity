@@ -36,7 +36,10 @@
           <img src="logo-al.svg" alt="AL Logo" class="brand-logo" width="32" height="32" />
           <span class="brand-name">Andrea Lucarelli</span>
         </a>
-        <div class="header-badge">Workshop: 02 Productivity</div>
+        <div class="header-controls">
+          <div class="header-badge">Workshop: 02 Productivity</div>
+          <button id="qr-btn" class="header-qr-btn">Mostra QR Code</button>
+        </div>
       </div>
     </header>
 
@@ -207,6 +210,20 @@ Il documento della fase 1 deve essere fornito in formato markdown.</code></pre>
         <polyline points="20 6 9 17 4 12"></polyline>
       </svg>
       <span class="toast-message">Prompt copiato negli appunti!</span>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="modal hidden">
+      <div class="modal-content premium-glass">
+        <button id="modal-close" class="modal-close-btn" aria-label="Chiudi modal">&times;</button>
+        <h3>Scansiona per accedere</h3>
+        <p>Inquadra con il telefono per aprire la pagina sul tuo dispositivo:</p>
+        <img src="qrcode.png" alt="QR Code Mini-sito" class="modal-qr-image" />
+        <div class="modal-shortlink">
+          <span>Link abbreviato:</span>
+          <a href="https://tinyurl.com/2cvq6x26" target="_blank">tinyurl.com/2cvq6x26</a>
+        </div>
+      </div>
     </div>
 
     <!-- Script -->

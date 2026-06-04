@@ -111,4 +111,26 @@ document.addEventListener('DOMContentLoaded', () => {
       toast.classList.remove('show');
     }, 3000);
   }
+
+  // Modal Handling
+  const qrBtn = document.getElementById('qr-btn');
+  const qrModal = document.getElementById('qr-modal');
+  const modalClose = document.getElementById('modal-close');
+
+  if (qrBtn && qrModal && modalClose) {
+    qrBtn.addEventListener('click', () => {
+      qrModal.classList.remove('hidden');
+    });
+
+    modalClose.addEventListener('click', () => {
+      qrModal.classList.add('hidden');
+    });
+
+    // Close on clicking outside the modal content
+    qrModal.addEventListener('click', (e) => {
+      if (e.target === qrModal) {
+        qrModal.classList.add('hidden');
+      }
+    });
+  }
 });
