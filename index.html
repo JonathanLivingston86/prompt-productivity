@@ -273,7 +273,7 @@ Il documento della fase 1 deve essere fornito in formato markdown.</code></pre>
               <pre id="code-preview-skill" class="agent-code-block">---
 name: bando-seeker-skill
 description: |
-  Istruisce l'agente a cercare quotidianamente bandi, concorsi, gare e opportunità di architettura/design,
+  Istruisce l'agente a cercare quotidianamente opportunità di sviluppo professionale (bandi, finanziamenti, concorsi con premio e call),
   filtrandoli ed effettuando lo scoring basato su un profilo utente.
   
   Usa questa skill quando:
@@ -288,60 +288,59 @@ metadata:
 
 # Regole Operative per BandoSeeker Agent
 
-Sei l'agente BandoSeeker. Il tuo obiettivo è assistere architetti e designer nella ricerca automatica di opportunità di lavoro (bandi, concorsi di idee, premi, call).
+Sei l'agente BandoSeeker. Il tuo obiettivo è assistere architetti e designer nella ricerca automatica di opportunità di sviluppo professionale e incentivi economici (bandi regionali/europei, concorsi di idee con premio, call for projects con compenso).
 
 ## Flusso Operativo Principale
 
 ### Fase 1: Verifica Profilo
 1. Controlla se nel workspace esiste il file `user_profile.json`.
 2. Se il file **NON** esiste:
-   * Avvia l'intervista di profilazione ponendo le domande una alla volta (vedi sezione Profilazione sotto).
-   * Al termine, genera e salva il file `user_profile.json` nel workspace.
+   * Avvia l'intervista di profilazione ponendo le domande una alla volta (vedi sezione Domande sotto).
+   * Al termine delle domande, compila e salva il file `user_profile.json` nel workspace.
 3. Se il file **esiste**:
-   * Leggi le preferenze dell'utente prima di avviare la ricerca.
+   * Leggi le preferenze del profilo prima di procedere con la ricerca.
 
 ### Fase 2: Lettura Storico (Deduplica)
-1. Cerca nella directory corrente tutti i file che corrispondono al pattern `report_*.md`.
-2. Leggi il loro contenuto ed estrai tutti gli URL e i titoli delle opportunità già segnalate in passato.
-3. Memorizza questo elenco in modo da escluderle dalla ricerca odierna.
+1. Controlla se nel workspace esiste il file `opportunita_rilevate.md` o vecchi report analoghi.
+2. Se presenti, leggi il loro contenuto ed estrai tutti gli URL e i titoli delle opportunità già proposte in passato per evitare duplicati.
 
 ### Fase 3: Ricerca Opportunità
-1. Esegui query di ricerca web usando `search_web` combinando parole chiave del profilo utente e l'anno corrente (es. `"concorso di progettazione" architettura 2026`).
+1. Esegui query di ricerca web usando `search_web` combinando parole chiave del profilo utente e l'anno corrente (es. `"concorso di progettazione" architettura 2026`, `"contributi a fondo perduto" professionisti Lazio 2026`).
 2. Se disponibile, esegui lo script `seeker_scraper.py` per leggere i feed RSS di Europaconcorsi e ConcorsiAWN.
-3. Raccogli tutti i dettagli delle opportunità trovate (Titolo, URL, Scadenza, Descrizione, Requisiti, Budget).
+3. Raccogli tutti i dettagli delle opportunità trovate (Titolo, URL, Scadenza, Descrizione, Requisiti, Ritorno Economico stimato).
 
 ### Fase 4: Filtro e Scoring
-1. Applica i filtri hard (escludi bandi scaduti, lingue non note o requisiti economico-organizzativi non soddisfatti).
+1. Applica i filtri hard (escludi opportunità scadute, lingue non note o requisiti economico-organizzativi non soddisfatti dal profilo).
 2. Valuta ciascuna opportunità rimanente assegnando un punteggio da 0 a 100:
-   * **Coerenza Profilo (Max 40 punti)**: Match con `tipologie_progetto` dell'utente.
-   * **Fattibilità Tecnica (Max 20 punti)**: Complessità di partecipazione (es. concorsi di idee in fase unica ottengono punteggio massimo).
-   * **Valore Economico (Max 15 punti)**: Coerenza con `budget_minimo_premio_eur`.
-   * **Geografia/Lingua (Max 15 punti)**: Vicinanza territoriale o lavoro da remoto.
-   * **Fonte (Max 10 punti)**: Autorevolezza del portale.
+   * **Coerenza Profilo (Max 40 punti)**: Corrispondenza con `tipologie_progetto` dello studio.
+   * **Fattibilità Tecnica (Max 20 punti)**: Semplicità di partecipazione (es. concorsi di idee in fase unica o bandi con sola presentazione del portfolio ottengono punteggio massimo).
+   * **Ritorno Economico (Max 15 punti)**: Coerenza con il premio/compenso minimo desiderato (`budget_minimo_premio_eur`).
+   * **Geografia/Lingua (Max 15 punti)**: Vicinanza territoriale per sopralluoghi o lavoro interamente online.
+   * **Fonte (Max 10 punti)**: Autorevolezza del portale (istituzioni pubbliche, ordini professionali).
 3. Classifica le opportunità:
    * Punteggio >= 75: Priorità ALTA
    * Punteggio 50-74: Priorità MEDIA
-   * Punteggio &lt; 50: Scartata (non segnalare)
+   * Punteggio &lt; 50: Scartata (non inserire nel report)
 
 ### Fase 5: Reportistica e Notifica
 1. Se il numero di nuove opportunità con punteggio >= 50 è **0**:
    * Termina l'esecuzione silenziosamente senza inviare messaggi o creare report.
 2. Se ci sono nuove opportunità valide:
-   * Crea il file `report_AAAA-MM-DD.md` nel workspace seguendo la struttura definita.
-   * Invia un messaggio di notifica chiaro in chat all'utente con l'elenco sintetico e i link.
+   * Crea o aggiorna il file `opportunita_rilevate.md` nel workspace seguendo lo schema concordato.
+   * Invia un messaggio di notifica chiaro in chat all'utente con l'elenco sintetico e i link diretti per la candidatura.
 
 ---
 
 ## Domande di Profilazione (Fase 1)
 Poni queste domande all'utente una alla volta:
 1. Qualifica professionale (architetto, designer, studio associato, ecc.)?
-2. Area geografica in cui operi e se preferisci lavoro da remoto?
-3. Tipologie di progetti di cui ti occupi (residenziale, interior, restauro, ecc.) e stile?
-4. Competenze ed esperienza (Albo, certificazioni energetiche, anni di portfolio)?
-5. Tipi di opportunità desiderate (bandi pubblici, concorsi di idee, premi, residenze)?
-6. Lingue in cui puoi candidarti?
-7. Budget o compensi minimi sotto i quali non vuoi scendere?
-8. Eventuali portali o fonti che preferisci monitorare?</pre>
+2. Area geografica in cui operi (regione/città) e raggio di spostamento?
+3. Tipologie di progetti di cui ti occupi (residenziale, interior, restauro, allestimenti)?
+4. Competenze ed esperienza dello studio (Albo, anni di attività, collaboratori)?
+5. Tipologia di opportunità desiderata (finanziamenti pubblici, concorsi di idee, call per installazioni)?
+6. Lingue in cui sei in grado di presentare proposte?
+7. Soglia minima di premio o compenso economico desiderato per partecipare?
+8. Fonti o portali preferiti da monitorare?</pre>
 
               <!-- Preview seeker_scraper.py -->
               <pre id="code-preview-scraper" class="agent-code-block hidden">import os
@@ -475,7 +474,7 @@ Benvenuta/o nella guida per configurare e attivare il tuo **BandoSeeker Agent**,
 L'agente si compone di tre parti principali:
 1. **La Skill di Antigravity (`SKILL.md`)**: Configura le istruzioni e le regole operative che l'IA di Antigravity deve seguire.
 2. **Lo Script Python (`seeker_scraper.py`)**: Uno strumento ausiliario che scarica e analizza rapidamente i feed RSS dei portali istituzionali (come Europaconcorsi e ConcorsiAWN) senza richiedere API Key.
-3. **Il Profilo Utente (`user_profile.json`)**: Un file che racchiude tutte le tue preferenze operative, budget, certificazioni e aree geografiche, compilato tramite un'intervista con l'agente.
+3. **Il Profilo Utente (`user_profile.json`)**: Un file che racchiude tutte le tue preferenze operative, budget minimo e aree geografiche, compilato automaticamente tramite un'intervista con l'agente.
 
 ---
 
@@ -541,7 +540,7 @@ Per fare in modo che l'agente cerchi bandi per te ogni giorno in background e ti
 3. Eseguirà lo script `seeker_scraper.py` e farà ricerche web (`search_web`) per trovare nuove opportunità.
 4. Confronterà i risultati con i report dei giorni precedenti per evitare duplicati.
 5. Calcolerà il punteggio di coerenza per ogni bando.
-6. **Se trova nuove opportunità valide (punteggio &gt;= 50)**: creerà un file di riepilogo `report_AAAA-MM-DD.md` nel tuo workspace e ti invierà la notifica via email (usando il server MCP Gmail o lo script SMTP) e in chat.
+6. **Se trova nuove opportunità valide (punteggio &gt;= 50)**: creerà un file di riepilogo `report_AAAA-MM-DD.md` nel tuo workspace e ti invierà la notifica via email (usando il server MCP Gmail) e in chat.
 7. **Se non trova nulla di nuovo**: rimarrà in silenzio senza disturbarti.
 
 ---
@@ -549,7 +548,7 @@ Per fare in modo che l'agente cerchi bandi per te ogni giorno in background e ti
 ## 6. Spiegazione dello Scoring (Come l'agente valuta i bandi)
 
 L'agente assegna un punteggio da 0 a 100 a ogni bando per determinarne l'interesse:
-* **Coerenza Profilo (Fino a 40 punti)**: Valuta se l'oggetto del bando corrisponde alle categorie indicate nel tuo profilo (residenziale, retail, spazi pubblici, ecc.).
+* **Coerenza Profilo (Fino a 40 punti)**: Valuta se l'oggetto del bando corrisponde alle categorie indicate nel tuo profilo (residenziale, interior, spazi pubblici, ecc.).
 * **Fattibilità Tecnica (Fino a 20 punti)**: Premia le procedure di partecipazione più snelle (es. concorsi di idee in fase singola) e penalizza quelle che richiedono requisiti complessi di fatturato o organico.
 * **Valore Economico (Fino a 15 punti)**: Confronta il premio o budget del bando con le tue soglie minime.
 * **Area Geografica (Fino a 15 punti)**: Punteggio massimo se l'opportunità è locale o permette il lavoro da remoto.
@@ -560,7 +559,7 @@ L'agente assegna un punteggio da 0 a 100 a ogni bando per determinarne l'interes
 ## 7. Personalizzazione Didattica (Esercizi per gli studenti)
 
 Puoi sperimentare e migliorare l'agente modificando i file sorgente:
-1. **Aggiungere Nuovi Portali**: Modifica il dizionario `RSS_FEEDS` nel file `seeker_scraper.py` per includere altri feed RSS regionali o internazionali.
+1. **Aggiungere Nuovi Portali**: Modifica il dizionario `RSS_FEEDS` nel file `seeker_scraper.py` per include altri feed RSS regionali o internazionali.
 2. **Modificare i Criteri di Scoring**: Apri il file `SKILL.md` nella cartella delle skill e modifica i pesi numerici (es. dando più valore alla vicinanza geografica rispetto al premio economico).
 3. **Estendere i Filtri**: Aggiungi nuove regole di esclusione automatica all'interno delle istruzioni di `SKILL.md` (es. escludere bandi che richiedono fideiussioni bancarie superiori a un certo importo).</pre>
             </div>
