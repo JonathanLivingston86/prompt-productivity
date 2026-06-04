@@ -51,46 +51,62 @@
         </p>
       </section>
 
-      <section class="controls-section">
-        <div class="search-wrapper">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" id="search-input" placeholder="Cerca tra i prompt (es. Secondo Cervello, Immagini...)" aria-label="Cerca prompt" />
-        </div>
-      </section>
+      <!-- Navigazione Tab -->
+      <div class="tabs-nav-container">
+        <nav class="tabs-nav">
+          <button class="tab-btn active" data-tab="prompts">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            Prompt Singoli
+          </button>
+          <button class="tab-btn" data-tab="agents">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+            Agenti Automatici
+          </button>
+        </nav>
+      </div>
 
-      <section class="prompts-grid" id="prompts-grid">
-        <!-- Card 1: Riordino Immagini -->
-        <article class="prompt-card" data-keywords="riordino immagini archiviazione architettura rinomina foto contesti">
-          <div class="card-header">
-            <div class="card-meta">
-              <span class="tag tag-blue">Automazione</span>
-              <span class="prompt-id">Prompt #1</span>
-            </div>
-            <h2 class="card-title">Organizzazione & Riordino Immagini</h2>
+      <!-- TAB 1: PROMPT SINGOLI -->
+      <div id="tab-content-prompts" class="tab-content-wrapper active">
+        <section class="controls-section">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" placeholder="Cerca tra i prompt (es. Secondo Cervello, Immagini...)" aria-label="Cerca prompt" />
           </div>
-          <div class="card-body">
-            <p class="card-description">
-              Comportandosi come un assistente di architettura e design, questo prompt permette ad un'AI agentica di rinominare e smistare le immagini di un progetto per soggetto principale, contesto spaziale e colore.
-            </p>
-            <div class="code-container">
-              <div class="code-header">
-                <span>Prompt di Sistema</span>
-                <button class="btn-copy" data-target="prompt-1" aria-label="Copia prompt">
-                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                  <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span class="btn-text">Copia</span>
-                </button>
-              </div>
-              <pre><code id="prompt-1">Usa i tuoi sub-agents per analizzare e organizzare le immagini dentro la cartella "Immagini disordinate", comportandoti come un assistente di architettura e design.
+        </section>
 
+        <section class="prompts-grid" id="prompts-grid">
+          <!-- Card 1: Riordino Immagini -->
+          <article class="prompt-card" data-keywords="riordino immagini archiviazione architettura rinomina foto contesti">
+            <div class="card-header">
+              <div class="card-meta">
+                <span class="tag tag-blue">Automazione</span>
+                <span class="prompt-id">Prompt #1</span>
+              </div>
+              <h2 class="card-title">Organizzazione & Riordino Immagini</h2>
+            </div>
+            <div class="card-body">
+              <p class="card-description">
+                Comportandosi come un assistente di architettura e design, questo prompt permette ad un'AI agentica di rinominare e smistare le immagini di un progetto per soggetto principale, contesto spaziale e colore.
+              </p>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>Prompt di Sistema</span>
+                  <button class="btn-copy" data-target="prompt-1" aria-label="Copia bando">
+                    <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="btn-text">Copia</span>
+                  </button>
+                </div>
+                <pre><code id="prompt-1">Usa i tuoi sub-agents per analizzare e organizzare le immagini dentro la cartella "Immagini disordinate", comportandoti come un assistente di architettura e design.
+  
 **Fase 1: Rinomina**
 Analizza ogni immagine e rinominala seguendo esattamente questo formato:
 `SoggettoPrincipale_Contesto_ColoreDelSoggetto`
@@ -105,70 +121,70 @@ Crea esattamente 5 sottocartelle:
 
 **Fase 3: Archiviazione**
 Sposta ogni immagine rinominata nella cartella corretta. Inserisci nella cartella "Altro" tutte le immagini che non rientrano nelle tue 4 categorie principali o che non c'entrano nulla con l'architettura (come automobili, cibo o paesaggi senza edifici).</code></pre>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2: Ridenominazione Documenti -->
-        <article class="prompt-card" data-keywords="documenti rinomina file faldoni pdf archivio cartelle">
-          <div class="card-header">
-            <div class="card-meta">
-              <span class="tag tag-purple">Gestione Studio</span>
-              <span class="prompt-id">Prompt #2</span>
-            </div>
-            <h2 class="card-title">Ridenominazione Coerente Documenti</h2>
-          </div>
-          <div class="card-body">
-            <p class="card-description">
-              Ottimizza e standardizza l'archiviazione di file, fatture, relazioni e schede tecniche analizzandone il contenuto e strutturando il nome file secondo uno schema temporale, tipologico e di soggetto.
-            </p>
-            <div class="code-container">
-              <div class="code-header">
-                <span>Prompt di Sistema</span>
-                <button class="btn-copy" data-target="prompt-2" aria-label="Copia prompt">
-                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                  <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span class="btn-text">Copia</span>
-                </button>
               </div>
-              <pre><code id="prompt-2">Analizza la documentazione in questa cartella, comprendi a fondo il contenuto di ogni file. poi rinomina coerentemente ogni file in base al contenuto con la seguente formattazione [Data] - [Tipo Documento] - [Soggetto] [Dettagli]</code></pre>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Card 3: Secondo Cervello -->
-        <article class="prompt-card" data-keywords="secondo cervello identikit intervista obsidian drive organizzazione">
-          <div class="card-header">
-            <div class="card-meta">
-              <span class="tag tag-green">Strategia & AI</span>
-              <span class="prompt-id">Prompt #3</span>
-            </div>
-            <h2 class="card-title">Configurazione Secondo Cervello AI</h2>
-          </div>
-          <div class="card-body">
-            <p class="card-description">
-              Un prompt avanzato per trasformare l'AI in un intervistatore professionista. Consente di definire il proprio profilo lavorativo, individuare le lacune organizzative e impostare un archivio strutturato per Obsidian o Drive.
-            </p>
-            <div class="code-container">
-              <div class="code-header">
-                <span>Prompt per Chatbot (ChatGPT / Claude)</span>
-                <button class="btn-copy" data-target="prompt-3" aria-label="Copia prompt">
-                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                  <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span class="btn-text">Copia</span>
-                </button>
+          <!-- Card 2: Ridenominazione Documenti -->
+          <article class="prompt-card" data-keywords="documenti rinomina file faldoni pdf archivio cartelle">
+            <div class="card-header">
+              <div class="card-meta">
+                <span class="tag tag-purple">Gestione Studio</span>
+                <span class="prompt-id">Prompt #2</span>
               </div>
-              <pre><code id="prompt-3">Sei un giornalista esperto in identità organizzativa. Mi aiuti a costruire il documento fondante del mio “secondo cervello” per l’intelligenza artificiale: un identikit che mi rappresenti così bene che, dato a qualsiasi AI, riceva risposte come se mi conoscesse da anni.
+              <h2 class="card-title">Ridenominazione Coerente Documenti</h2>
+            </div>
+            <div class="card-body">
+              <p class="card-description">
+                Ottimizza e standardizza l'archiviazione di file, fatture, relazioni e schede tecniche analizzandone il contenuto e strutturando il nome file secondo uno schema temporale, tipologico e di soggetto.
+              </p>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>Prompt di Sistema</span>
+                  <button class="btn-copy" data-target="prompt-2" aria-label="Copia prompt">
+                    <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="btn-text">Copia</span>
+                  </button>
+                </div>
+                <pre><code id="prompt-2">Analizza la documentazione in questa cartella, comprendi a fondo il contenuto di ogni file. poi rinomina coerentemente ogni file in base al contenuto con la seguente formattazione [Data] - [Tipo Documento] - [Soggetto] [Dettagli]</code></pre>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Secondo Cervello -->
+          <article class="prompt-card" data-keywords="secondo cervello identikit intervista obsidian drive organizzazione">
+            <div class="card-header">
+              <div class="card-meta">
+                <span class="tag tag-green">Strategia & AI</span>
+                <span class="prompt-id">Prompt #3</span>
+              </div>
+              <h2 class="card-title">Configurazione Secondo Cervello AI</h2>
+            </div>
+            <div class="card-body">
+              <p class="card-description">
+                Un prompt avanzato per trasformare l'AI in un intervistatore professionista. Consente di definire il proprio profilo lavorativo, individuare le lacune organizzative e impostare un archivio strutturato per Obsidian o Drive.
+              </p>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>Prompt per Chatbot (ChatGPT / Claude)</span>
+                  <button class="btn-copy" data-target="prompt-3" aria-label="Copia prompt">
+                    <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <svg class="icon-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span class="btn-text">Copia</span>
+                  </button>
+                </div>
+                <pre><code id="prompt-3">Sei un giornalista esperto in identità organizzativa. Mi aiuti a costruire il documento fondante del mio “secondo cervello” per l’intelligenza artificiale: un identikit che mi rappresenti così bene che, dato a qualsiasi AI, riceva risposte come se mi conoscesse da anni.
 
 Il tuo lavoro è in tre fasi.
 
@@ -179,19 +195,362 @@ Fase 2 — Mappa delle informazioni mancanti. Quando l’intervista è finita, r
 Fase 3 — Struttura cartelle proposta. Alla fine, proponi una struttura di cartelle e file (in formato albero) in cui organizzare tutto. Pensa che dovrà essere gestita con strumenti come Obsidian o Drive. Esempio: cartella cervello/ con dentro 00-identita/ (chi-siamo, obiettivi-2026, tono-di-voce), 01-mercato/ (profili-cliente, casi-tipo), 02-operativo/ (strumenti-quotidiani, workflow-standard).
 
 Il documento della fase 1 deve essere fornito in formato markdown.</code></pre>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state hidden">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="8" y1="12" x2="16" y2="12"></line>
+          </svg>
+          <p>Nessun prompt trovato che corrisponde alla tua ricerca.</p>
+        </div>
+      </div>
+
+      <!-- TAB 2: AGENTI AUTOMATICI -->
+      <div id="tab-content-agents" class="tab-content-wrapper hidden">
+        <div class="agent-intro-card">
+          <div class="agent-badge">AI Agent Automatizzato</div>
+          <h2>🤖 BandoSeeker: Agente Automatico Ricerca Bandi</h2>
+          <p>
+            Questo è un agente AI avanzato per Antigravity. Si attiva autonomamente ogni mattina, profila l'architetto/designer raccogliendo preferenze di budget, certificazioni e aree geografiche, ed esegue ricerche ibride sui portali di concorsi (RSS + Web Search). Filtra e calcola uno score di coerenza, notificando l'utente solo se emergono opportunità reali.
+          </p>
+        </div>
+
+        <div class="agent-workspace">
+          <!-- Sidebar con la lista dei file -->
+          <div class="agent-sidebar">
+            <button class="file-tab-btn active" data-file="skill">
+              <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              <div class="file-info">
+                <span class="file-name">SKILL.md</span>
+                <span class="file-desc">Istruzioni di sistema</span>
+              </div>
+            </button>
+            <button class="file-tab-btn" data-file="scraper">
+              <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <div class="file-info">
+                <span class="file-name">seeker_scraper.py</span>
+                <span class="file-desc">Script Python RSS</span>
+              </div>
+            </button>
+            <button class="file-tab-btn" data-file="guide">
+              <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              <div class="file-info">
+                <span class="file-name">GUIDA_STUDENTI.md</span>
+                <span class="file-desc">Guida all'uso della classe</span>
+              </div>
+            </button>
+          </div>
+
+          <!-- Visualizzatore file con pulsanti Copia e Scarica -->
+          <div class="agent-viewer">
+            <div class="viewer-header">
+              <span id="current-file-title">SKILL.md</span>
+              <div class="viewer-actions">
+                <button id="btn-copy-agent" class="btn-copy-premium">
+                  <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copia Codice</span>
+                </button>
+                <button id="btn-download-agent" class="btn-download-premium">
+                  <svg class="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  <span>Scarica File</span>
+                </button>
+              </div>
+            </div>
+            <div class="viewer-body">
+              <!-- Preview SKILL.md -->
+              <pre id="code-preview-skill" class="agent-code-block">---
+name: bando-seeker-skill
+description: |
+  Istruisce l'agente a cercare quotidianamente bandi, concorsi, gare e opportunità di architettura/design,
+  filtrandoli ed effettuando lo scoring basato su un profilo utente.
+  
+  Usa questa skill quando:
+  1. Viene richiesto di cercare bandi o concorsi nel settore architettura/design.
+  2. Viene attivata l'esecuzione programmata quotidiana (cron trigger).
+  3. L'utente richiede di aggiornare la propria profilazione professionale.
+license: Apache-2.0
+metadata:
+  version: v1
+  publisher: local
+---
+
+# Regole Operative per BandoSeeker Agent
+
+Sei l'agente BandoSeeker. Il tuo obiettivo è assistere architetti e designer nella ricerca automatica di opportunità di lavoro (bandi, concorsi di idee, premi, call).
+
+## Flusso Operativo Principale
+
+### Fase 1: Verifica Profilo
+1. Controlla se nel workspace esiste il file `user_profile.json`.
+2. Se il file **NON** esiste:
+   * Avvia l'intervista di profilazione ponendo le domande una alla volta (vedi sezione Profilazione sotto).
+   * Al termine, genera e salva il file `user_profile.json` nel workspace.
+3. Se il file **esiste**:
+   * Leggi le preferenze dell'utente prima di avviare la ricerca.
+
+### Fase 2: Lettura Storico (Deduplica)
+1. Cerca nella directory corrente tutti i file che corrispondono al pattern `report_*.md`.
+2. Leggi il loro contenuto ed estrai tutti gli URL e i titoli delle opportunità già segnalate in passato.
+3. Memorizza questo elenco in modo da escluderle dalla ricerca odierna.
+
+### Fase 3: Ricerca Opportunità
+1. Esegui query di ricerca web usando `search_web` combinando parole chiave del profilo utente e l'anno corrente (es. `"concorso di progettazione" architettura 2026`).
+2. Se disponibile, esegui lo script `seeker_scraper.py` per leggere i feed RSS di Europaconcorsi e ConcorsiAWN.
+3. Raccogli tutti i dettagli delle opportunità trovate (Titolo, URL, Scadenza, Descrizione, Requisiti, Budget).
+
+### Fase 4: Filtro e Scoring
+1. Applica i filtri hard (escludi bandi scaduti, lingue non note o requisiti economico-organizzativi non soddisfatti).
+2. Valuta ciascuna opportunità rimanente assegnando un punteggio da 0 a 100:
+   * **Coerenza Profilo (Max 40 punti)**: Match con `tipologie_progetto` dell'utente.
+   * **Fattibilità Tecnica (Max 20 punti)**: Complessità di partecipazione (es. concorsi di idee in fase unica ottengono punteggio massimo).
+   * **Valore Economico (Max 15 punti)**: Coerenza con `budget_minimo_premio_eur`.
+   * **Geografia/Lingua (Max 15 punti)**: Vicinanza territoriale o lavoro da remoto.
+   * **Fonte (Max 10 punti)**: Autorevolezza del portale.
+3. Classifica le opportunità:
+   * Punteggio >= 75: Priorità ALTA
+   * Punteggio 50-74: Priorità MEDIA
+   * Punteggio &lt; 50: Scartata (non segnalare)
+
+### Fase 5: Reportistica e Notifica
+1. Se il numero di nuove opportunità con punteggio >= 50 è **0**:
+   * Termina l'esecuzione silenziosamente senza inviare messaggi o creare report.
+2. Se ci sono nuove opportunità valide:
+   * Crea il file `report_AAAA-MM-DD.md` nel workspace seguendo la struttura definita.
+   * Invia un messaggio di notifica chiaro in chat all'utente con l'elenco sintetico e i link.
+
+---
+
+## Domande di Profilazione (Fase 1)
+Poni queste domande all'utente una alla volta:
+1. Qualifica professionale (architetto, designer, studio associato, ecc.)?
+2. Area geografica in cui operi e se preferisci lavoro da remoto?
+3. Tipologie di progetti di cui ti occupi (residenziale, interior, restauro, ecc.) e stile?
+4. Competenze ed esperienza (Albo, certificazioni energetiche, anni di portfolio)?
+5. Tipi di opportunità desiderate (bandi pubblici, concorsi di idee, premi, residenze)?
+6. Lingue in cui puoi candidarti?
+7. Budget o compensi minimi sotto i quali non vuoi scendere?
+8. Eventuali portali o fonti che preferisci monitorare?</pre>
+
+              <!-- Preview seeker_scraper.py -->
+              <pre id="code-preview-scraper" class="agent-code-block hidden">import os
+import sys
+import json
+import urllib.request
+import urllib.error
+import xml.etree.ElementTree as ET
+from datetime import datetime
+import re
+
+# Configurazione delle fonti RSS predefinite
+RSS_FEEDS = {
+    "Europaconcorsi": "https://europaconcorsi.com/active.rss",
+    "Professione Architetto": "https://www.professionearchitetto.it/rss/concorsi.xml",
+    "ConcorsiAWN": "https://www.concorsiawn.it/rss"
+}
+
+def clean_html(raw_html):
+    """Pulisce il testo rimuovendo i tag HTML ed entità XML comuni."""
+    if not raw_html:
+        return ""
+    cleanr = re.compile('&lt;.*?&gt;')
+    cleantext = re.sub(cleanr, '', raw_html)
+    # Rimuove spazi doppi e ritorni a capo eccessivi
+    cleantext = re.sub(r'\s+', ' ', cleantext).strip()
+    return cleantext
+
+def fetch_rss_feed(source_name, url):
+    """Scarica e parsifica un feed RSS, restituendo una lista di opportunità candidate."""
+    print(f"[-] Recupero feed da {source_name}: {url}", file=sys.stderr)
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    }
+    
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            xml_data = response.read()
+    except urllib.error.URLError as e:
+        print(f"[!] Errore di rete su {source_name}: {e.reason}", file=sys.stderr)
+        return []
+    except Exception as e:
+        print(f"[!] Errore generico nel download di {source_name}: {e}", file=sys.stderr)
+        return []
+
+    opportunities = []
+    try:
+        root = ET.fromstring(xml_data)
+        # Supporta sia RSS 2.0 che Atom
+        channel = root.find('channel')
+        items = []
+        if channel is not None:
+            items = channel.findall('item')
+        else:
+            # Fallback per Atom
+            items = root.findall('{http://www.w3.org/2005/Atom}entry')
+
+        for item in items:
+            title_node = item.find('title') or item.find('{http://www.w3.org/2005/Atom}title')
+            link_node = item.find('link') or item.find('{http://www.w3.org/2005/Atom}link')
+            desc_node = item.find('description') or item.find('{http://www.w3.org/2005/Atom}summary') or item.find('{http://www.w3.org/2005/Atom}content')
+            pub_date_node = item.find('pubDate') or item.find('{http://www.w3.org/2005/Atom}published')
+
+            title = title_node.text if title_node is not None else "Senza Titolo"
+            
+            # Gestione link per Atom (l'attributo href o il testo)
+            if link_node is not None:
+                link = link_node.attrib.get('href') if 'href' in link_node.attrib else link_node.text
+            else:
+                link = ""
+                
+            desc = desc_node.text if desc_node is not None else ""
+            pub_date = pub_date_node.text if pub_date_node is not None else ""
+
+            # Estrai eventuale data di scadenza dal testo se indicata (euristica semplice)
+            scadenza = "Non specificata"
+            match = re.search(r'(scadenza|entro il|scade il)[:\s]+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})', desc + " " + title, re.IGNORECASE)
+            if match:
+                scadenza = match.group(2)
+
+            opportunities.append({
+                "titolo": clean_html(title),
+                "link": link.strip() if link else "",
+                "descrizione": clean_html(desc)[:300] + "...",
+                "data_pubblicazione": pub_date,
+                "scadenza_stimata": scadenza,
+                "fonte": source_name
+            })
+    except ET.ParseError as e:
+        print(f"[!] Errore di parsing XML per {source_name}: {e}", file=sys.stderr)
+    except Exception as e:
+        print(f"[!] Errore generico nel processare {source_name}: {e}", file=sys.stderr)
+
+    return opportunities
+
+def main():
+    # Caricamento parole chiave opzionali passate da riga di comando
+    keywords = [kw.lower() for kw in sys.argv[1:]]
+    
+    all_opportunities = []
+    
+    for source, url in RSS_FEEDS.items():
+        feeds = fetch_rss_feed(source, url)
+        all_opportunities.extend(feeds)
+        
+    # Filtro locale opzionale basato sulle keyword del profilo utente
+    if keywords:
+        filtered_opps = []
+        for opp in all_opportunities:
+            text_to_search = (opp["titolo"] + " " + opp["descrizione"]).lower()
+            if any(kw in text_to_search for kw in keywords):
+                filtered_opps.append(opp)
+        all_opportunities = filtered_opps
+
+    # Stampa i risultati in formato JSON standard su stdout
+    print(json.dumps(all_opportunities, indent=2, ensure_ascii=False))
+
+if __name__ == "__main__":
+    main()</pre>
+
+              <!-- Preview GUIDA_STUDENTI.md -->
+              <pre id="code-preview-guide" class="agent-code-block hidden"># Guida per gli Studenti: Installazione e Uso di BandoSeeker Agent
+
+Benvenuta/o nella guida per configurare e attivare il tuo **BandoSeeker Agent**, un assistente automatico progettato per cercare, filtrare e valutare ogni giorno nuove opportunità lavorative, bandi, premi e concorsi nel settore dell'architettura e del design, su misura per il tuo profilo professionale.
+
+---
+
+## 1. Architettura dell'Agente
+
+L'agente si compone di tre parti principali:
+1. **La Skill di Antigravity (`SKILL.md`)**: Configura le istruzioni e le regole operative che l'IA di Antigravity deve seguire.
+2. **Lo Script Python (`seeker_scraper.py`)**: Uno strumento ausiliario che scarica e analizza rapidamente i feed RSS dei portali istituzionali (come Europaconcorsi e ConcorsiAWN) senza richiedere API Key.
+3. **Il Profilo Utente (`user_profile.json`)**: Un file che racchiude tutte le tue preferenze operative, budget, certificazioni e aree geografiche, compilato tramite un'intervista con l'agente.
+
+---
+
+## 2. Istruzioni per l'Installazione
+
+Segui questi passi per installare l'agente nel tuo ambiente Antigravity:
+
+### Passo 1: Installare la Skill di Sistema
+1. Individua la cartella delle impostazioni di Antigravity sul tuo computer:
+   * **Windows**: `C:\Users\&lt;TuoNomeUtente&gt;\.gemini\skills\`
+   * **macOS / Linux**: `~/.gemini/skills/`
+2. Crea una nuova cartella nominata `bando-seeker-skill`.
+3. All'interno di questa cartella, crea un file di testo nominato `SKILL.md`.
+4. Copia e incolla all'interno di `SKILL.md` le istruzioni della skill (puoi trovarle nel file `SKILL.md` fornito nel materiale del workshop).
+
+### Passo 2: Posizionare lo Scraper nel Workspace
+1. Copia il file seeker_scraper.py all'interno della cartella del tuo progetto o workspace di lavoro corrente (la cartella in cui di lavoro di solito organizzi i documenti).
+
+---
+
+## 3. Come Avviare l'Agente e Profilarsi
+
+Una volta posizionati i file, apri la chat di Antigravity nel tuo workspace e digita:
+
+> *"Attiva l'agente BandoSeeker e avvia l'intervista per creare il mio profilo di ricerca."*
+
+L'agente riconoscerà la skill e ti farà una serie di domande (una alla volta) per capire:
+* Se sei freelance, studio associato, azienda, ecc.
+* Quali tipologie di progetti realizzi ed il tuo stile.
+* In quali paesi o regioni operi.
+* Quali budget minimi e scadenze minime vuoi impostare per filtrare i bandi.
+
+Al termine delle domande, l'agente salverà automaticamente nel tuo workspace il file `user_profile.json`. Puoi modificare questo file a mano in qualsiasi momento per aggiornare i tuoi parametri di ricerca!
+
+---
+
+## 4. Come Attivare la Ricerca Automatica Quotidiana (Scheduling)
+
+Per fare in modo che l'agente cerchi bandi per te ogni giorno in background e ti invii una notifica solo se trova qualcosa di rilevante, scrivi in chat:
+
+> *"Pianifica una ricerca quotidiana automatica ogni mattina alle 9:00 basata sul mio profilo utente usando il tool schedule."*
+
+### Cosa succede in background?
+1. Antigravity utilizzerà il suo strumento interno di pianificazione (`schedule` con cron expression `0 9 * * *`).
+2. Ogni mattina alle 9:00 l'agente si sveglierà in background.
+3. Eseguirà lo script `seeker_scraper.py` e farà ricerche web (`search_web`) per trovare nuove opportunità.
+4. Confronterà i risultati con i report dei giorni precedenti per evitare duplicati.
+5. Calcolerà il punteggio di coerenza per ogni bando.
+6. **Se trova nuove opportunità valide (punteggio &gt;= 50)**: creerà un file di riepilogo `report_AAAA-MM-DD.md` nel tuo workspace e ti invierà una notifica in chat.
+7. **Se non trova nulla di nuovo**: rimarrà in silenzio senza disturbarti.
+
+---
+
+## 5. Spiegazione dello Scoring (Come l'agente valuta i bandi)
+
+L'agente assegna un punteggio da 0 a 100 a ogni bando per determinarne l'interesse:
+* **Coerenza Profilo (Fino a 40 punti)**: Valuta se l'oggetto del bando corrisponde alle categorie indicate nel tuo profilo (residenziale, retail, spazi pubblici, ecc.).
+* **Fattibilità Tecnica (Fino a 20 punti)**: Premia le procedure di partecipazione più snelle (es. concorsi di idee in fase singola) e penalizza quelle che richiedono requisiti complessi di fatturato o organico.
+* **Valore Economico (Fino a 15 punti)**: Confronta il premio o budget del bando con le tue soglie minime.
+* **Area Geografica (Fino a 15 punti)**: Punteggio massimo se l'opportunità è locale o permette il lavoro da remoto.
+* **Affidabilità Fonte (Fino a 10 punti)**: Valore massimo per piattaforme istituzionali verificate come l'Ordine degli Architetti o gazzette ufficiali.
+
+---
+
+## 6. Personalizzazione Didattica (Esercizi per gli studenti)
+
+Puoi sperimentare e migliorare l'agente modificando i file sorgente:
+1. **Aggiungere Nuovi Portali**: Modifica il dizionario `RSS_FEEDS` nel file `seeker_scraper.py` per includere altri feed RSS regionali o internazionali.
+2. **Modificare i Criteri di Scoring**: Apri il file `SKILL.md` nella cartella delle skill e modifica i pesi numerici (es. dando più valore alla vicinanza geografica rispetto al premio economico).
+3. **Estendere i Filtri**: Aggiungi nuove regole di esclusione automatica all'interno delle istruzioni di `SKILL.md` (es. escludere bandi che richiedono fideiussioni bancarie superiori a un certo importo).</pre>
             </div>
           </div>
-        </article>
-      </section>
-
-      <!-- Empty State -->
-      <div id="empty-state" class="empty-state hidden">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="8" y1="12" x2="16" y2="12"></line>
-        </svg>
-        <p>Nessun prompt trovato che corrisponde alla tua ricerca.</p>
+        </div>
       </div>
+
     </main>
 
     <footer class="site-footer">
