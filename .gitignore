@@ -1,0 +1,13 @@
+# Sistema operativo ed editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# File locali, temporanei o sensibili
+.env
+.env.*
+!.env.example
+*.log
+.tmp/
+tmp/
