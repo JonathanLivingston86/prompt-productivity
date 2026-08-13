@@ -8,7 +8,7 @@ Mantenere il mini-sito pubblicato e pronto per future modifiche dentro il worksp
 
 ## Da fare
 
-- [ ] Revisionare e, se approvata, unire la Pull Request in bozza del ramo `agent/adotta-framework`; fino all'unione, il sito pubblico e il ramo `main` restano invariati.
+- [ ] Revisionare e, se approvata, unire la [Pull Request in bozza #1](https://github.com/JonathanLivingston86/prompt-productivity/pull/1) del ramo `agent/adotta-framework`; fino all'unione, il sito pubblico e il ramo `main` restano invariati.
 - [ ] Confermare, quando tornerà utile, se il sito deve restare soltanto mantenuto oppure ricevere nuove funzioni e contenuti.
 
 ## In attesa
