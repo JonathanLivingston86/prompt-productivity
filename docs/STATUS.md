@@ -8,7 +8,6 @@ Mantenere la risorsa web pubblicata e pronta per future modifiche dentro il prog
 
 ## Da fare
 
-- [ ] Revisionare e, se approvata, unire la [Pull Request in bozza #1](https://github.com/JonathanLivingston86/prompt-productivity/pull/1) del ramo `agent/adotta-framework`; fino all'unione, il sito pubblico e il ramo `main` restano invariati.
 - [ ] Confermare, quando tornerà utile, se il sito deve restare soltanto mantenuto oppure ricevere nuove funzioni e contenuti.
 
 ## In attesa
@@ -22,6 +21,8 @@ Mantenere la risorsa web pubblicata e pronta per future modifiche dentro il prog
 - [x] Aggiunto l'involucro condiviso Codex/Claude: `README.md`, `AGENTS.md`, `CLAUDE.md`, `.gitignore` e questo stato.
 - [x] Verificati la sintassi di `script.js`, tutti i file necessari e la risposta HTTP locale `200`; i cinque file del sito non sono stati modificati durante l'adozione del framework.
 - [x] Riclassificato e ricollocato come risorsa di `workshop-ai-per-architette`, preservando commit `953fcde`, branch `agent/adotta-framework`, remote GitHub e sito pubblico; il server locale dal nuovo percorso ha risposto HTTP 200.
+- [x] Revisionata la Pull Request `#1` lungo gli assi Standards e Spec: entrambi PASS, zero rilievi; sintassi JavaScript e risposta HTTP locale verificate.
+- [x] Unita la Pull Request `#1` con squash merge `eb500ff`; `main` è sincronizzato e il sito live risponde HTTP 200 con il contenuto atteso.
 
 ## Rischi e riferimenti
 
