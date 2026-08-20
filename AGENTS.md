@@ -4,7 +4,7 @@
 
 - Leggi `README.md` e `docs/STATUS.md`.
 - Spiega ad Andrea in italiano semplice cosa farai e perché.
-- Tratta `C:\AgenticWorkspace\PROGETTI\LAVORO\AI_PER_ARCHITETTI\workshop-ai-per-architette\risorse\prompt-productivity` come radice canonica locale.
+- Tratta `C:\AgenticWorkspace\PROGETTI\LAVORO\FREELANCE\workshop-ai-per-architette\risorse\prompt-productivity` come radice canonica locale.
 - Considera questo repository una risorsa del progetto `workshop-ai-per-architette`, non un progetto autonomo sul piano organizzativo.
 - La copia OneDrive è legacy: non modificarla, sincronizzarla o eliminarla automaticamente.
 
