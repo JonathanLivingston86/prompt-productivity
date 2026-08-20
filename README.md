@@ -4,7 +4,7 @@ Mini-sito pubblico con prompt pratici del workshop “Productivity”, parte del
 
 ## A cosa serve
 
-Il sito permette di cercare, leggere e copiare rapidamente i prompt usati durante il workshop. È un componente autonomo del progetto coordinatore [`workshop-ai-per-architette`](https://github.com/JonathanLivingston86/workshop-ai-per-architette).
+Il sito permette di cercare, leggere e copiare rapidamente i prompt usati durante il workshop. È una risorsa del progetto proprietario [`workshop-ai-per-architette`](https://github.com/JonathanLivingston86/workshop-ai-per-architette), con repository e pubblicazione tecnicamente separati.
 
 Sito pubblicato: <https://jonathanlivingston86.github.io/prompt-productivity/>
 
@@ -14,7 +14,7 @@ Sito pubblicato: <https://jonathanlivingston86.github.io/prompt-productivity/>
 - `style.css`: aspetto grafico e adattamento a telefono e desktop;
 - `script.js`: ricerca, copia dei prompt e finestra del codice QR;
 - `logo-al.svg` e `qrcode.png`: asset grafici usati dalla pagina;
-- `docs/STATUS.md`: attività e stato verificabile del progetto.
+- `docs/STATUS.md`: attività e stato verificabile della risorsa.
 
 Non usa dipendenze da installare, compilazione o servizi locali: è un sito statico, cioè composto da file che il browser può leggere direttamente.
 

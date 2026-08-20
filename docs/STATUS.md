@@ -1,10 +1,10 @@
 # Stato — Prompt Productivity
 
-Ultimo aggiornamento: 14 agosto 2026.
+Ultimo aggiornamento: 20 agosto 2026.
 
 ## Obiettivo corrente
 
-Mantenere il mini-sito pubblicato e pronto per future modifiche dentro il workspace agentico canonico, senza alterare la vecchia copia cloud.
+Mantenere la risorsa web pubblicata e pronta per future modifiche dentro il progetto proprietario, senza alterare la vecchia copia cloud.
 
 ## Da fare
 
@@ -21,6 +21,7 @@ Mantenere il mini-sito pubblicato e pronto per future modifiche dentro il worksp
 - [x] Clonato il repository nella posizione canonica locale senza spostare o modificare la sorgente OneDrive.
 - [x] Aggiunto l'involucro condiviso Codex/Claude: `README.md`, `AGENTS.md`, `CLAUDE.md`, `.gitignore` e questo stato.
 - [x] Verificati la sintassi di `script.js`, tutti i file necessari e la risposta HTTP locale `200`; i cinque file del sito non sono stati modificati durante l'adozione del framework.
+- [x] Riclassificato e ricollocato come risorsa di `workshop-ai-per-architette`, preservando commit `953fcde`, branch `agent/adotta-framework`, remote GitHub e sito pubblico; il server locale dal nuovo percorso ha risposto HTTP 200.
 
 ## Rischi e riferimenti
 
