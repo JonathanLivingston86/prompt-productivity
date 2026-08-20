@@ -28,4 +28,4 @@ Mantenere la risorsa web pubblicata e pronta per future modifiche dentro il prog
 
 - Il repository e il sito sono pubblici: non inserire segreti o dati personali non destinati alla pubblicazione.
 - Il ramo `main` alimenta GitHub Pages; ogni push deve essere preceduto da verifica proporzionata.
-- Progetto coordinatore: `C:\AgenticWorkspace\PROGETTI\LAVORO\AI_PER_ARCHITETTI\workshop-ai-per-architette`.
+- Progetto coordinatore: `C:\AgenticWorkspace\PROGETTI\LAVORO\FREELANCE\workshop-ai-per-architette`.
